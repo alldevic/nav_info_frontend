@@ -1,3 +1,9 @@
+<style type="text/postcss">
+  h1 {
+    @apply bg-black text-white;
+  }
+</style>
+
 <svelte:head>
   <title>About</title>
 </svelte:head>
