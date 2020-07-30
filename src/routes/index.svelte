@@ -5,7 +5,7 @@
 </style>
 
 <svelte:head>
-  <title>About</title>
+  <title>Nav Info</title>
 </svelte:head>
 
 <h1>About this site</h1>
