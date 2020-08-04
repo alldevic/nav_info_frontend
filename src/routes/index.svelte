@@ -1,13 +1,7 @@
 <script>
-  import { onMount } from "svelte";
   import LeafletMap from "../components/LeafletMap.svelte";
   import LeafletMarker from "../components/LeafletMarker.svelte";
-
-  let leaflet;
-
-  onMount(async () => {
-    leaflet = (await import("leaflet")).default;
-  });
+  import Leaflet from "../components/Leaflet.svelte";
 
   let markers = [
     [40, -3],
@@ -35,12 +29,11 @@
 
 <p>This is the 'about' page. There's not much here.</p>
 <button on:click={handle}>qweqweqe</button>
-<div class="w-screen h-screen">
-  {#if leaflet != null}
-    <LeafletMap L={leaflet} on:update={() => console.log('Update!')}>
-      {#each markers as marker}
-        <LeafletMarker lat={marker[0]} lng={marker[1]} />
-      {/each}
-    </LeafletMap>
-  {/if}
-</div>
+
+<Leaflet class="w-screen h-screen">
+  <LeafletMap on:update={() => console.log('Update!')}>
+    {#each markers as marker}
+      <LeafletMarker lat={marker[0]} lng={marker[1]} />
+    {/each}
+  </LeafletMap>
+</Leaflet>
