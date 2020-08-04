@@ -9,7 +9,7 @@
   let leaflet;
 
   onMount(async () => {
-    leaflet = await import("leaflet/dist/leaflet-src.esm");
+    leaflet = await import("./Leaflet");
 
     delete leaflet.Icon.Default.prototype._getIconUrl;
 
