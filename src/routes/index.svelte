@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import LeafletMap from "../components/LeafletMap.svelte";
   import LeafletMarker from "../components/LeafletMarker.svelte";
+
   let leaflet;
 
   onMount(async () => {

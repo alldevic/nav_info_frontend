@@ -1,4 +1,8 @@
 <script>
+  import "leaflet/dist/leaflet.css";
+  import marker from "leaflet/dist/images/marker-icon.png";
+  import marker2x from "leaflet/dist/images/marker-icon-2x.png";
+  import markerShadow from "leaflet/dist/images/marker-shadow.png";
   import { onMount, setContext } from "svelte";
 
   export let L;
@@ -16,6 +20,14 @@
       throw new Error("No Leaflet instance was provided.");
     }
 
+    delete L.Icon.Default.prototype._getIconUrl;
+
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: marker2x,
+      iconUrl: marker,
+      shadowUrl: markerShadow,
+    });
+
     map = L.map(mapContainer, {
       center: [0, 0],
       zoom: 0,
@@ -27,12 +39,6 @@
     }).addTo(map);
   });
 </script>
-
-<svelte:head>
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-</svelte:head>
 
 <div class="w-full h-full" bind:this={mapContainer}>
   {#if map != null}
