@@ -9,7 +9,13 @@
   let leaflet;
 
   onMount(async () => {
-    leaflet = await import("./Leaflet");
+    const leafletInst = await import("leaflet/src/layer/index");
+    const leafletMap = await import("leaflet/src/map/index");
+
+    const { Icon, tileLayer, marker: leafletMarker } = leafletInst;
+    const { map } = leafletMap;
+
+    leaflet = { Icon, tileLayer, marker: leafletMarker, map };
 
     delete leaflet.Icon.Default.prototype._getIconUrl;
 
