@@ -176,7 +176,7 @@
   <div class="mt-auto h-16 flex items-center w-full">
     <!-- Action Section -->
     <button
-      class="h-16 w-10 mx-auto flex justify-center items-center w-full
+      class="h-16 mx-auto flex justify-center items-center w-full
       focus:text-orange-500 hover:bg-red-200 focus:outline-none">
       <svg
         class="h-5 w-5 text-red-700"
